@@ -7,7 +7,7 @@
 	excludesfile = /Users/seanob/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -16,7 +16,7 @@
 	ci = commit
 	st = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    po = "!f() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
+	po = "!f() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
 [push]
 	default = simple
 [credential]
