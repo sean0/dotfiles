@@ -2,18 +2,10 @@
 
 export HISTSIZE= HISTFILESIZE= HISTCONTROL=ignoredups:erasedups
 
-function parse_git_branch {
-  git rev-parse --abbrev-ref HEAD 2> /dev/null | sed -e 's/\(.*\)/[\1]/'
-}
+COLOR_RED="\[\033[0;91m\]"
+COLOR_RESET="\[\033[0m\]"
 
-GIT="\[\033[0;91m\]"
-ORIG="\[\033[0m\]"
-
-PS1="\w$GIT \$(parse_git_branch)$ORIG\$ "
-
-${A:${#A}-5:5}
-
-export PROMPT_COMMAND='if [[ -z "$TABNAME" ]]; then echo -ne "\\033]0;${PWD##*/}\\007"; else echo -ne "\\033]0;[$TABNAME]\\007"; fi;'
+PS1="\w$COLOR_RED \$(__git_ps1 '[%s]')$COLOR_RESET\$ "
 
 # bash completion for z
 . /usr/local/etc/profile.d/z.sh
@@ -22,7 +14,6 @@ export PREZIDIR="/Users/seanob/.prezi"
 export EDITOR=vim
 export PATH="$PATH:$HOME/Library/Haskell/bin"
 export PATH="$PATH:$PREZIDIR/simply"
-
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 . $HOME/.homebrew.env
