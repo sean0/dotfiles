@@ -2,10 +2,8 @@
 
 export HISTSIZE= HISTFILESIZE= HISTCONTROL=ignoredups:erasedups
 
-COLOR_RED="\[\033[0;91m\]"
-COLOR_RESET="\[\033[0m\]"
-
-PS1="\w$COLOR_RED \$(__git_ps1 '[%s]')$COLOR_RESET\$ "
+GIT_PS1_SHOWCOLORHINTS=true
+PROMPT_COMMAND="__git_ps1 '\w ' '$ ' '[%s]'"
 
 # bash completion for z
 . /usr/local/etc/profile.d/z.sh
