@@ -17,6 +17,7 @@
 	st = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	po = "!f() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
+	spp = "!f() { git stash; git pull; git stash pop; }; f"
 [push]
 	default = simple
 [credential]
