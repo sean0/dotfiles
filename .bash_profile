@@ -3,7 +3,7 @@
 export HISTSIZE= HISTFILESIZE= HISTCONTROL=ignoredups:erasedups
 
 GIT_PS1_SHOWCOLORHINTS=true
-PROMPT_COMMAND="__git_ps1 '\w ' '$ ' '[%s]'"
+PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`)}\w " "$ " "[%s]"'
 
 # bash completion for z
 . /usr/local/etc/profile.d/z.sh
@@ -41,8 +41,6 @@ export FLEX_HOME="$PREZIDIR/flex_sdk_4.6"
 
 # needed for python shell completion
 export PYTHONSTARTUP="/Users/seanob/.pythonrc"
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 cd $PREZIDIR
 
