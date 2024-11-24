@@ -13,24 +13,19 @@ PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`)}\w " "$ " "[
 # env vars
 . $HOME/.bash.env
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export WORKDIR="/Users/sean.obrien/.work"
+export WORKDIR="/Users/sean/.work"
 export EDITOR=vim
-#export JAVA_HOME=$(/usr/libexec/java_home)
-export CPPFLAGS=-I/usr/local/opt/openssl/include
-export LDFLAGS=-L/usr/local/opt/openssl/lib
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 . $HOME/.homebrew.env
 
 alias la="ls -alhG"
-alias t="cd $WORKDIR"
+alias b="cd $WORKDIR"
 alias ve=". virtualenv/bin/activate"
 
 alias dockclean="docker ps -a | grep Exited | cut -d ' ' -f 1 | xargs docker rm"
 alias dockcleani="docker images -f "dangling=true" -q | xargs docker rmi"
 
-alias config='/usr/bin/git --git-dir=/Users/sean.obrien/dotfiles/ --work-tree=/Users/sean.obrien'
+alias config='/usr/bin/git --git-dir=/Users/sean/dotfiles/ --work-tree=/Users/sean'
 dockexec() { docker exec -ti $(docker ps -q | head -1) bash; }
 # show me links when I which
 whicher() { ls -alhG $(which "$1"); }
@@ -43,16 +38,6 @@ export PATH=$PATH:/opt/bin
 
 ## Work scripts directory
 export PATH=$PATH:$WORKDIR/.bin
-## non-system Ruby and installed binaries
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
-
-# go binary directory
-export PATH=$PATH:/Users/sean.obrien/go/bin
-export GOPATH=$(go env GOPATH)
-
-# needed for python shell completion
-export PYTHONSTARTUP="/Users/sean.obrien/.pythonrc"
 
 cd $WORKDIR
 
